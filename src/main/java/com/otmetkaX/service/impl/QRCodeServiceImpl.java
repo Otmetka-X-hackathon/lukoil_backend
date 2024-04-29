@@ -19,11 +19,8 @@ public class QRCodeServiceImpl implements QRCodeService {
     @Override
     public BufferedImage generateQRCode(String teamName) {
         try {
-            // Генерация QR-кода
             BufferedImage qrImage = generateQRCodeImage(teamName);
-
             return generateQRCodeImage(teamName);
-//            return convertImageToBase64(qrImage);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
