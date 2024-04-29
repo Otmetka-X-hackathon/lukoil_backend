@@ -12,13 +12,10 @@ import java.util.Date;
 
 @Component
 public class JwtTokenProvider {
-
     private final SecretKey secretKey;
-
     public JwtTokenProvider() {
         this.secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     }
-
     public String generateToken(String username) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + 24 * 60 * 60 * 1000); // Срок действия токена - 24 часа
@@ -29,7 +26,6 @@ public class JwtTokenProvider {
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
-
     public String getUsernameFromToken(String token) {
         Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
         return claims.getBody().getSubject();

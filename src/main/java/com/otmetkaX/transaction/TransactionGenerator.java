@@ -18,7 +18,7 @@ public class TransactionGenerator {
     
     private final Random random = new Random();
     
-    @Scheduled(fixedDelay = 60000) // Выполнение каждую минуту
+    @Scheduled(fixedDelay = 60000)
     public void generateTransaction() {
         long randomProductId = random.nextInt(390) + 1;
         try {
@@ -29,7 +29,7 @@ public class TransactionGenerator {
         }
     }
 
-    @Scheduled(cron = "0 0 0 * * *") // Выполнение в 00.00 раз в сутки
+    @Scheduled(cron = "0 0 0 * * *")
     public void runAtMidnight() {
         productService.resetCountToDay();
     }

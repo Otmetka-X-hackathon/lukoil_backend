@@ -16,7 +16,6 @@ import java.util.Base64;
 
 @Service
 public class QRCodeServiceImpl implements QRCodeService {
-
     @Override
     public BufferedImage generateQRCode(String teamName) {
         try {

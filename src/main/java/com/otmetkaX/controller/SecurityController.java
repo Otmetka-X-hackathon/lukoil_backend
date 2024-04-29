@@ -16,13 +16,10 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping("/api/lukoil")
 public class SecurityController {
     private final SecurityService service;
-
     @Autowired
     public SecurityController(SecurityService service) {
         this.service = service;
     }
-
-    // вход
     @PostMapping("login")
     public CompletableFuture<ResponseEntity<ResponseMessage>> postSecurity(@RequestParam String phoneNumber, @RequestParam int code) throws CustomException {
         return CompletableFuture.supplyAsync(() -> {

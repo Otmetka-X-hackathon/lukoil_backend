@@ -16,15 +16,11 @@ import java.util.concurrent.CompletableFuture;
 @RestController
 @RequestMapping("/api/lukoil")
 public class ProductController {
-
     private final ProductService service;
-
     @Autowired
     public ProductController(ProductService service) {
         this.service = service;
     }
-
-    // топ 20 продуктов по покупкам за сегодня
     @GetMapping("top20/product")
     public CompletableFuture<ResponseEntity<ResponseMessage>> getTop20Products() throws CustomException {
         return CompletableFuture.supplyAsync(() -> {

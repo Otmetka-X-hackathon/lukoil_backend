@@ -19,14 +19,11 @@ import java.io.IOException;
 import java.util.List;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     private final SecurityService service;
-
     @Autowired
     public JwtAuthenticationFilter(SecurityService service) {
         this.service = service;
     }
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try {
@@ -49,7 +46,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             response.getWriter().write(errorMessage);
         }
     }
-
     private String extractTokenFromRequest(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
         if (header != null && header.startsWith("Bearer ")) {

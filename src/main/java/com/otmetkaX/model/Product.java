@@ -24,10 +24,10 @@ public class Product {
     @Column(name = "count_to_day", nullable = false)
     private long countToDay;
 
-    @Column(name = "region")
+    @Column(name = "region", nullable = false)
     private String region;
 
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     private double price;
 
     public Product() {

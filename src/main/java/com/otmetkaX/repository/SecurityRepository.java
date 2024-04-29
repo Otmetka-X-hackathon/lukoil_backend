@@ -11,7 +11,6 @@ import java.util.Optional;
 @Repository
 @Transactional
 public interface SecurityRepository extends JpaRepository<Security, Long> {
-
     Optional<Security> findByPhone(String phone);
     Optional<Security> findByToken(String token);
     Optional<Security> findById(Long id);

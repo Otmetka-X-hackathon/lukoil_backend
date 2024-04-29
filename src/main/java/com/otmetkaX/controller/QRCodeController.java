@@ -15,15 +15,12 @@ import java.util.concurrent.CompletableFuture;
 @RestController
 @RequestMapping("/api/lukoil")
 public class QRCodeController {
-
     private final String teamName = "otmetkaX";
     private final QRCodeService service;
-
     @Autowired
     public QRCodeController(QRCodeService service) {
         this.service = service;
     }
-
     @GetMapping("QRCode")
     public CompletableFuture<ResponseEntity<byte[]>> getQRCode() throws CustomException {
         return CompletableFuture.supplyAsync(() -> {

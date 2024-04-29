@@ -15,7 +15,6 @@ import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-
     private final EntityManager entityManager;
     private final ProductRepository repository;
     @Autowired
