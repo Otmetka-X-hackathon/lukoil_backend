@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()// Меняем hasAnyRole на hasRole
+        http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/lukoil/top20/product").hasAnyRole( "EMPLOYEE")
                 .antMatchers(HttpMethod.POST, "/api/lukoil/login").permitAll()
                 .and()
