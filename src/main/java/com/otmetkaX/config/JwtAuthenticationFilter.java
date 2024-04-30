@@ -31,7 +31,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (token != null) {
                 Security user = service.findByToken(token);
                 if (user != null) {
-                    List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_" + user.getRole()); // Добавляем "ROLE_" перед ролью
+                    List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_" + user.getRole()); 
                     Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                     logger.info("User {} successfully authenticated with roles: {}" + user.getPhone() + " " + authorities);
